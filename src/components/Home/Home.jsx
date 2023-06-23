@@ -1,3 +1,4 @@
+import SidebarContext from "../../context/SidebarContext";
 import Sidebar from "../Sidebar/Sidebar";
 import {
   HomeComContainer,
@@ -6,12 +7,20 @@ import {
 
 const Home = function () {
   return (
-    <HomeComContainer>
-      <Sidebar />
-      <ContainerForPageContent>
-        <h1>Home Page Content</h1>
-      </ContainerForPageContent>
-    </HomeComContainer>
+    <SidebarContext.Consumer>
+      {value => {
+        const {isShowPcSider} = value
+
+        return (
+          <HomeComContainer>
+            <Sidebar />
+            <ContainerForPageContent desktop={isShowPcSider}>
+              <h1>Home Page Content</h1>
+            </ContainerForPageContent>
+          </HomeComContainer>
+        )
+      }}
+    </SidebarContext.Consumer>
   );
 };
 

@@ -22,17 +22,25 @@ import {
 function Header() {
   return (
     <SidebarContext.Consumer>
-      {(value) => {
-        const {isShowUserPopup, usePopUpToggle} = value;
+      {value => {
+        const {isShowUserPopup, usePopUpToggle, toggleMobileSider, togglePcSider} = value;
 
-        const clickedOnPopItems = () => {
+        const ClickedOnPopItems = () => {
           usePopUpToggle()
+        }
+
+        const ToggleMobileMenu = () => {
+          toggleMobileSider()
+        }
+
+        const ToggleLargeMenu = () => {
+          togglePcSider()
         }
 
         return (
           <HeaderComContainer>
             <LogoHeadingHeader>Start Bootstrap</LogoHeadingHeader>
-            <DeskTopToggleMenu type="button">
+            <DeskTopToggleMenu type="button" onClick={ToggleLargeMenu}>
               <IoMdMenu size={20} />
             </DeskTopToggleMenu>
             <HeaderRightContainerCom>
@@ -44,26 +52,26 @@ function Header() {
               </HeaderSearchBoxContainer>
               <HeaderUserPopIconContainer
                 type="button"
-                onClick={clickToChangePopup}
+                onClick={ClickedOnPopItems}
               >
                 <FaUserAlt size={15} />
                 <BiSolidDownArrow size={10} />
               </HeaderUserPopIconContainer>
               {isShowUserPopup && (
                 <HeaderUserTogglePopUp>
-                  <PopUpInsideContent onClick={clickedOnPopItems}>
+                  <PopUpInsideContent onClick={ClickedOnPopItems}>
                     Settings
                   </PopUpInsideContent>
-                  <PopUpInsideContent onClick={clickedOnPopItems}>
+                  <PopUpInsideContent onClick={ClickedOnPopItems}>
                     Activity Log
                   </PopUpInsideContent>
                   <PopupHrLine />
-                  <PopUpInsideContent onClick={clickedOnPopItems}>
+                  <PopUpInsideContent onClick={ClickedOnPopItems}>
                     Logout
                   </PopUpInsideContent>
                 </HeaderUserTogglePopUp>
               )}
-              <MobileTopToggleMenu type="button">
+              <MobileTopToggleMenu type="button" onClick={ToggleMobileMenu}>
                 <IoMdMenu size={20} />
               </MobileTopToggleMenu>
             </HeaderRightContainerCom>

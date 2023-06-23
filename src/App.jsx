@@ -5,9 +5,9 @@ import SidebarContext from "./context/SidebarContext";
 import { useState } from "react";
 
 const initialState = {
-  isLightSider: true,
+  isDarkSider: true,
   isShowPcSider: true,
-  isShowMobileSider: true,
+  isShowMobileSider: false,
   isShowUserPopup: false,
 };
 
@@ -15,13 +15,25 @@ function App() {
   const [contextState, stateUpdate] = useState(initialState);
 
   const changeSiderTheme = () => {
-    stateUpdate(prevState => ({...prevState,  isLightSider: !contextState.isLightSider}))
+    stateUpdate(prevState => ({...prevState,  isLightSider: !prevState.isLightSider}))
   }
 
+  const togglePcSider = () => {
+    stateUpdate(prevState => ({...prevState,  isShowPcSider: !prevState.isShowPcSider}))
+  }
+
+  const toggleMobileSider = () => {
+    stateUpdate(prevState => ({...prevState,  isShowMobileSider: !prevState.isShowMobileSider, }))
+  }
+
+  const usePopUpToggle = () => {
+    stateUpdate(prevState => ({...prevState,  isShowUserPopup: !prevState.isShowUserPopup}))
+  }
+  
   return (
     <SidebarContext.Provider
       value={{
-        isLightSider: contextState.isLightSider,
+        isDarkSider: contextState.isDarkSider,
         changeSiderTheme,
         isShowPcSider: contextState.isShowPcSider,
         togglePcSider,

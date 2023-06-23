@@ -1,17 +1,22 @@
 import SidebarContext from "../../context/SidebarContext";
 
-import { SidebarComContainer } from "./SidebarStyled";
+import { PcSidebarConatiner, MobileSidebarContainer, CompleteSidebarContainer } from "./SidebarStyled";
 
 const Sidebar = function () {
   return (
     <SidebarContext.Consumer>
       {(value) => {
-        const { isLightSider, isShowMobileSider } = value;
-        
+        const { isDarkSider, isShowMobileSider, isShowPcSider} = value;
+
         return (
-          <SidebarComContainer theme={isLightSider} mobileMenu={isShowMobileSider}>
-            <p>Side Bar Content</p>
-          </SidebarComContainer>
+          <CompleteSidebarContainer>
+            {isShowPcSider && <PcSidebarConatiner theme={isDarkSider} desktop={isShowPcSider.toString()}>
+              <p>PC Sidebar Container</p>
+            </PcSidebarConatiner>}
+            <MobileSidebarContainer theme={isDarkSider} mobile={isShowMobileSider.toString()}>
+              <p>Mobile Side bar</p>
+            </MobileSidebarContainer>
+          </CompleteSidebarContainer>
         );
       }}
     </SidebarContext.Consumer>

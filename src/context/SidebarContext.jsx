@@ -1,11 +1,11 @@
 import React from 'react'
 
 const SidebarContext = React.createContext({
-    isLightSider: true,
+    isDarkSider: true,
     changeSiderTheme: () => {},
     isShowPcSider: true,
     togglePcSider: () => {},
-    isShowMobileSider: true,
+    isShowMobileSider: false,
     toggleMobileSider: () => {},
     isShowUserPopup : false,
     usePopUpToggle: () => {}
