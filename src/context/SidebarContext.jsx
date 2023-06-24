@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const SidebarContext = React.createContext({
     isDarkSider: true,
     changeSiderTheme: () => {},
@@ -8,7 +9,7 @@ const SidebarContext = React.createContext({
     isShowMobileSider: false,
     toggleMobileSider: () => {},
     isShowUserPopup : false,
-    usePopUpToggle: () => {}
+    usePopUpToggle: () => {},
 })
 
 export default SidebarContext

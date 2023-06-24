@@ -1,4 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
+import { MdOutlineArrowForwardIos} from "react-icons/md";
 
 import {
   SideIconTextArrowContainer,
@@ -7,25 +7,33 @@ import {
 } from "./SidebarStyled";
 import SidebarContext from "../../context/SidebarContext";
 
-const MenuItem = function (each) {
+const MenuItem = function (detail) {
+  const {functionToChangeDrop} = detail
+  const {displayText, id,icon, isDrop, path, isShowDropDown} = detail.detail;
+
+  const clickedToChangeStatusDrop = () => {
+    functionToChangeDrop(id)
+    
+  }
   
   return (
     <SidebarContext.Consumer>
       {(value) => {
         const { isDarkSider } = value;
-
+        
         return (
           <SideIconTextArrowContainer
-            theme={isDarkSider}
-            to={each.path}
+            theme={isDarkSider.toString()}
+            to={path}
+            onClick={isDrop === true ? clickedToChangeStatusDrop : null}
           >
             <SideIconTextContainer>
-              {each.icon.isAvailable === true ? each.icon.show : ''}
-              <SideMenuTextPara>{each.displayText}</SideMenuTextPara>
+              {icon.isAvailable === true ? icon.show : ''}
+              <SideMenuTextPara>{displayText}</SideMenuTextPara>
             </SideIconTextContainer>
-            {each.isDrop && (
-              <SideLowerIconContainer>
-                <IoIosArrowDown size={20} />
+            {isDrop && (
+              <SideLowerIconContainer rotate={isShowDropDown.toString()}>
+                <MdOutlineArrowForwardIos size={20} />
               </SideLowerIconContainer>
             )}
           </SideIconTextArrowContainer>

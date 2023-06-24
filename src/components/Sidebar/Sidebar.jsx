@@ -1,5 +1,6 @@
 import SidebarContext from "../../context/SidebarContext";
 import MenuItem from './MenuItem'
+import React from 'react'
 
 import { AiFillDashboard, AiOutlineBarChart } from "react-icons/ai";
 import { BiBookContent } from "react-icons/bi";
@@ -18,30 +19,32 @@ import {
   BottomSiderTextContainer,
   BottomText,
 } from "./SidebarStyled";
+import { useState } from "react";
 
 const dropDownMenu = [
   {
     id: 1,
     displayText: "Layouts",
-    icon: { isAvailable: true, show: <LuLayout size={20}/> },
+    icon: { isAvailable: true, show: <LuLayout size={20} /> },
     isDrop: true,
     path: "",
     insideDrop: [
       {
-        id: 1.1,
+        id: '1.1',
         displayText: "Static Navigation",
         icon: { isAvailable: false, show: "" },
         isDrop: false,
         path: "/static-path",
       },
       {
-        id: 1.2,
+        id: '1.2',
         displayText: "Light Sidebar",
         icon: { isAvailable: false, show: "" },
         isDrop: false,
         path: "",
       },
     ],
+    isShowDropDown: false
   },
   {
     id: 2,
@@ -51,7 +54,7 @@ const dropDownMenu = [
     path: "",
     insideDrop: [
       {
-        id: 2.1,
+        id: '2.1',
         displayText: "Authentication",
         icon: { isAvailable: false, show: "" },
         isDrop: true,
@@ -79,9 +82,10 @@ const dropDownMenu = [
             path: "/forget-password",
           },
         ],
+        isShowDropDown: false
       },
       {
-        id: 2.2,
+        id: '2.2',
         displayText: "Error",
         icon: { isAvailable: false, show: "" },
         isDrop: true,
@@ -109,17 +113,60 @@ const dropDownMenu = [
             path: "/500",
           },
         ],
+        isShowDropDown: false
       },
     ],
+    isShowDropDown: false
   },
 ];
 
 const Sidebar = function () {
+  const [dropList, updateList] = useState(dropDownMenu)
+
+  const functionToChangeDrop = (uniqueId) => {
+    const lengthId = uniqueId.toString().length;
+  
+    if (lengthId === 1) {
+      const newList = dropList.map((each) => {
+        if (each.id === uniqueId) {
+          return {
+            ...each,
+            isShowDropDown: !each.isShowDropDown
+          };
+        }
+        return each;
+      });
+      updateList(newList);
+    } else {
+      const splitted = uniqueId.split('.');
+      const topLevelIndex = parseInt(splitted[0]) - 1;
+      const insideDropIndex = parseInt(splitted[1]) - 1;
+      
+      const newList = [...dropList];
+      newList[topLevelIndex] = {
+        ...newList[topLevelIndex],
+        insideDrop: newList[topLevelIndex].insideDrop.map((each, index) => {
+          if (index === insideDropIndex) {
+            return {
+              ...each,
+              isShowDropDown: !each.isShowDropDown
+            };
+          }
+          return each;
+        })
+      };
+      
+      updateList(newList);
+    }
+  };
+  
+  
+
   const commonSideBar = (isDarkSider) => {
     return (
       <ComSideTextContainer>
         <MiniSideHeading>CORE</MiniSideHeading>
-        <SideIconTextArrowContainer theme={isDarkSider} to="/">
+        <SideIconTextArrowContainer theme={isDarkSider.toString()} to="/">
           <SideIconTextContainer>
             <AiFillDashboard size={20} />
             <SideMenuTextPara>Dashboard</SideMenuTextPara>
@@ -127,22 +174,39 @@ const Sidebar = function () {
         </SideIconTextArrowContainer>
 
         {/* Drop Down Menu */}
-
+        
         <MiniSideHeading>INTERFACE</MiniSideHeading>
-        {dropDownMenu.map((each) => (
-          <MenuItem key={each.id} each={each} />
+        {dropList.map((each) => (
+          <React.Fragment key={each.id}>
+            <MenuItem key={each.id} detail={each} functionToChangeDrop={functionToChangeDrop} />
+            {each.isShowDropDown && each.isDrop === true ? (
+              each.insideDrop.map((insiderItems) => (
+                <React.Fragment key={insiderItems.id}>
+                  <MenuItem key={insiderItems.id} detail={insiderItems} functionToChangeDrop={functionToChangeDrop} />
+                  {insiderItems.isShowDropDown && insiderItems.isDrop === true ? (
+                    insiderItems.insideDrop.map((triple) => (
+                      <React.Fragment key={triple.id}>
+                        <MenuItem key={triple.id} detail={triple} />
+                      </React.Fragment>
+                    ))
+                  ) : null}
+                </React.Fragment>
+              ))
+            ) : null}
+          </React.Fragment>
         ))}
+
 
         {/* Drop Down Menu */}
 
         <MiniSideHeading>Addons</MiniSideHeading>
-        <SideIconTextArrowContainer theme={isDarkSider} to="/charts">
+        <SideIconTextArrowContainer theme={isDarkSider.toString()} to="/charts">
           <SideIconTextContainer>
             <AiOutlineBarChart size={20} />
             <SideMenuTextPara>Charts</SideMenuTextPara>
           </SideIconTextContainer>
         </SideIconTextArrowContainer>
-        <SideIconTextArrowContainer theme={isDarkSider} to="/tables">
+        <SideIconTextArrowContainer theme={isDarkSider.toString()} to="/tables">
           <SideIconTextContainer>
             <BsTable size={20} />
             <SideMenuTextPara>Tables</SideMenuTextPara>
@@ -156,7 +220,7 @@ const Sidebar = function () {
     return (
       <BottomSiderTextContainer>
         <BottomText>logged in as:</BottomText>
-        <BottomText big={true}>Start Bootstrap</BottomText>
+        <BottomText big={'true'}>Start Bootstrap</BottomText>
       </BottomSiderTextContainer>
     );
   };
@@ -167,23 +231,23 @@ const Sidebar = function () {
         const { isDarkSider, isShowMobileSider, isShowPcSider } = value;
 
         return (
-          <CompleteSidebarContainer>
+          <CompleteSidebarContainer theme={isDarkSider.toString()}>
             {isShowPcSider && (
               <PcSidebarConatiner
-                theme={isDarkSider}
-                desktop={isShowPcSider.toString()}
+                theme={isDarkSider.toString()}
               >
-                {commonSideBar(isDarkSider)}
+                {commonSideBar(isDarkSider.toString())}
                 {FooterSider()}
               </PcSidebarConatiner>
             )}
             <MobileSidebarContainer
-              theme={isDarkSider}
+              theme={isDarkSider.toString()}
               mobile={isShowMobileSider.toString()}
             >
-              {commonSideBar(isDarkSider)}
+              {commonSideBar(isDarkSider.toString())}
               {FooterSider()}
             </MobileSidebarContainer>
+
           </CompleteSidebarContainer>
         );
       }}

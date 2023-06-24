@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {Link} from 'react-router-dom';
 
 import { keyframes } from "styled-components";
@@ -14,14 +14,15 @@ const slideAnimation = keyframes`
 export const CompleteSidebarContainer = styled.div``;
 
 export const PcSidebarConatiner = styled.nav`
-  min-height: 95vh;
   width: 250px;
   background-color: ${(props) =>
-    props.theme === true ? "#212429" : "#d6d6d6"};
-  color: ${(props) => (props.theme === true ? "#a4a4a4" : "#212429")};
+    props.theme === "true" ? "#212429" : "#d6d6d6"};
+  color: ${(props) => (props.theme === "true" ? "#a4a4a4" : "#212429")};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: auto;
+  height: 90vh;
   @media all and (max-width: 768px) {
     display: none;
   }
@@ -35,13 +36,14 @@ export const MobileSidebarContainer = styled.nav`
   min-height: 95vh;
   width: 250px;
   background-color: ${(props) =>
-    props.theme === true ? "#212429" : "#adadad"};
-  color: ${(props) => (props.theme === true ? "#a4a4a4" : "#212429")};
+    props.theme === "true" ? "#212429" : "#adadad"};
+  color: ${(props) => (props.theme === "true" ? "#a4a4a4" : "#212429")};
   transition: left 0.5s ease-in-out;
   animation: ${slideAnimation} 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: auto;
+  height: 75vh;
   @media all and (min-width: 768px) {
     display: none;
   }
@@ -50,13 +52,14 @@ export const MobileSidebarContainer = styled.nav`
 // Common Menu Design
 export const ComSideTextContainer = styled.div`
   overflow: auto;
-  padding: 25px 15px 25px 15px;
+  padding: 10px 20px 10px 20px;
+  
 `;
 
 export const MiniSideHeading = styled.p`
   font-weight: bold;
-  margin: 25px 0px 25px 0px;
-  font-size: 15px;
+  margin: 10px 0px 10px 0px;
+  font-size: 12px;
   font-stretch: extra-condensed;
 `;
 
@@ -67,7 +70,7 @@ justify-content: space-between;
 background: none;
 border: none;
 text-decoration: none;
-color: ${(props) => (props.theme === true ? "#a4a4a4" : "#212429")};
+color: ${(props) => (props.theme === 'true' ? "#a4a4a4" : "#212429")};
 width: 100%;
 margin: 20px 0px 20px 0px;
 `;
@@ -87,7 +90,13 @@ font-size: 17px;
 `;
 
 export const SideLowerIconContainer = styled.div`
-  
+  transition: transform 0.3s;
+
+  ${({ rotate }) =>
+    rotate === 'true' &&
+    css`
+      transform: rotate(90deg);
+    `}
 `;
 
 // Footer Sider
@@ -100,5 +109,5 @@ export const BottomSiderTextContainer = styled.div`
 
 export const BottomText = styled.p`
   line-height: 25px;
-  font-size: ${(props) => (props.big === true ? "20px" : "15px")};
+  font-size: ${(props) => (props.big === 'true' ? "20px" : "15px")};
 `;
