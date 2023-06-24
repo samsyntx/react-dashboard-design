@@ -39,7 +39,7 @@ function Header() {
 
         return (
           <HeaderComContainer>
-            <LogoHeadingHeader>Start Bootstrap</LogoHeadingHeader>
+            <LogoHeadingHeader to="/">Start Bootstrap</LogoHeadingHeader>
             <DeskTopToggleMenu type="button" onClick={ToggleLargeMenu}>
               <IoMdMenu size={20} />
             </DeskTopToggleMenu>

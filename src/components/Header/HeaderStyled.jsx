@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from 'react-router-dom'
 
 export const HeaderComContainer = styled.nav`
   background-color: #212429;
@@ -12,10 +13,12 @@ export const HeaderComContainer = styled.nav`
   flex-wrap: wrap;
 `;
 
-export const LogoHeadingHeader = styled.h1`
+export const LogoHeadingHeader = styled(Link)`
   font-size: 1.25rem;
   font-weight: 300;
   min-width: 230px;
+  color: white;
+  text-decoration: none;
 `;
 
 export const DeskTopToggleMenu = styled.button`
