@@ -9,7 +9,7 @@ import SidebarContext from "../../context/SidebarContext";
 
 const MenuItem = function (detail) {
   const {functionToChangeDrop} = detail
-  const {displayText, id,icon, isDrop, path, isShowDropDown} = detail.detail;
+  const {displayText, id,icon, isDrop, path, isShowDropDown, clickable} = detail.detail;
 
   const clickedToChangeStatusDrop = () => {
     functionToChangeDrop(id)
@@ -19,17 +19,21 @@ const MenuItem = function (detail) {
   return (
     <SidebarContext.Consumer>
       {(value) => {
-        const { isDarkSider } = value;
+        const { isDarkSider, changeSiderTheme } = value;
+
+        const changeToLightTheme = () => {
+          changeSiderTheme()
+        }
         
         return (
           <SideIconTextArrowContainer
             theme={isDarkSider.toString()}
             to={path}
-            onClick={isDrop === true ? clickedToChangeStatusDrop : null}
+            onClick={(isDrop === true) ? (clickedToChangeStatusDrop) : ((clickable === true) ? (changeToLightTheme) : null)}
           >
             <SideIconTextContainer>
               {icon.isAvailable === true ? icon.show : ''}
-              <SideMenuTextPara>{displayText}</SideMenuTextPara>
+              <SideMenuTextPara theme={isDarkSider.toString()}>{displayText}</SideMenuTextPara>
             </SideIconTextContainer>
             {isDrop && (
               <SideLowerIconContainer rotate={isShowDropDown.toString()}>

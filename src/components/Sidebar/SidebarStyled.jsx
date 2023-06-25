@@ -16,7 +16,7 @@ export const CompleteSidebarContainer = styled.div``;
 export const PcSidebarConatiner = styled.nav`
   width: 250px;
   background-color: ${(props) =>
-    props.theme === "true" ? "#212429" : "#d6d6d6"};
+    props.theme === "true" ? "#212429" : "#f3f3f3"};
   color: ${(props) => (props.theme === "true" ? "#a4a4a4" : "#212429")};
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ export const MobileSidebarContainer = styled.nav`
   min-height: 95vh;
   width: 250px;
   background-color: ${(props) =>
-    props.theme === "true" ? "#212429" : "#adadad"};
+    props.theme === "true" ? "#212429" : "#f3f3f3"};
   color: ${(props) => (props.theme === "true" ? "#a4a4a4" : "#212429")};
   transition: left 0.5s ease-in-out;
   animation: ${slideAnimation} 0.5s ease-in-out;
@@ -85,7 +85,7 @@ export const SideMenuTextPara = styled.p`
 margin-left: 15px;
 font-size: 17px;
 &:hover{
-  color: white;
+  color: ${props => props.theme === 'true' ? 'white' : '#106cf5'};
 }
 `;
 
@@ -102,7 +102,7 @@ export const SideLowerIconContainer = styled.div`
 // Footer Sider
 
 export const BottomSiderTextContainer = styled.div`
-  background-color: #353a40;
+  background-color: ${props => props.theme === 'true' ? '#353a40' : "#dadada"};
   padding: 15px 10px 15px 10px;
   height: 60px;
 `;

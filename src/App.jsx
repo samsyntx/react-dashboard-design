@@ -4,6 +4,9 @@ import Home from "./components/Home/Home";
 import SidebarContext from "./context/SidebarContext";
 import { useState } from "react";
 
+import { ComAppContainer, FlexRouteRenderContainer } from "./AppStyled";
+import Sidebar from './components/Sidebar/Sidebar'
+
 const initialState = {
   isDarkSider: true,
   isShowPcSider: true,
@@ -15,21 +18,33 @@ function App() {
   const [contextState, stateUpdate] = useState(initialState);
 
   const changeSiderTheme = () => {
-    stateUpdate(prevState => ({...prevState,  isLightSider: !prevState.isLightSider}))
-  }
+    stateUpdate((prevState) => ({
+      ...prevState,
+      isDarkSider: !prevState.isDarkSider,
+    }));
+  };
 
   const togglePcSider = () => {
-    stateUpdate(prevState => ({...prevState,  isShowPcSider: !prevState.isShowPcSider}))
-  }
+    stateUpdate((prevState) => ({
+      ...prevState,
+      isShowPcSider: !prevState.isShowPcSider,
+    }));
+  };
 
   const toggleMobileSider = () => {
-    stateUpdate(prevState => ({...prevState,  isShowMobileSider: !prevState.isShowMobileSider, }))
-  }
+    stateUpdate((prevState) => ({
+      ...prevState,
+      isShowMobileSider: !prevState.isShowMobileSider,
+    }));
+  };
 
   const usePopUpToggle = () => {
-    stateUpdate(prevState => ({...prevState,  isShowUserPopup: !prevState.isShowUserPopup}))
-  }
-  
+    stateUpdate((prevState) => ({
+      ...prevState,
+      isShowUserPopup: !prevState.isShowUserPopup,
+    }));
+  };
+
   return (
     <SidebarContext.Provider
       value={{
@@ -45,9 +60,14 @@ function App() {
     >
       <BrowserRouter>
         <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
+        <ComAppContainer>
+          <Sidebar />
+          <FlexRouteRenderContainer>
+            <Switch>
+              <Route exact path="/" component={Home} />
+            </Switch>
+          </FlexRouteRenderContainer>
+        </ComAppContainer>
       </BrowserRouter>
     </SidebarContext.Provider>
   );
