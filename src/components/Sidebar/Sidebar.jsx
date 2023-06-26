@@ -27,7 +27,7 @@ const dropDownMenu = [
     displayText: "Layouts",
     icon: { isAvailable: true, show: <LuLayout size={20} /> },
     isDrop: true,
-    path: "",
+    path: "#",
     insideDrop: [
       {
         id: "1.1",
@@ -54,14 +54,14 @@ const dropDownMenu = [
     displayText: "Pages",
     icon: { isAvailable: true, show: <BiBookContent size={20} /> },
     isDrop: true,
-    path: "",
+    path: "#",
     insideDrop: [
       {
         id: "2.1",
         displayText: "Authentication",
         icon: { isAvailable: false, show: "" },
         isDrop: true,
-        path: "",
+        path: "#",
         insideDrop: [
           {
             id: "LOGIN",
@@ -96,7 +96,7 @@ const dropDownMenu = [
         displayText: "Error",
         icon: { isAvailable: false, show: "" },
         isDrop: true,
-        path: "",
+        path: "#",
         insideDrop: [
           {
             id: 401,
