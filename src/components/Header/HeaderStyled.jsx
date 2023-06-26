@@ -81,6 +81,7 @@ export const HeaderUserPopIconContainer = styled.button`
 `;
 
 export const HeaderUserTogglePopUp = styled.div`
+  z-index: 50;
   position: absolute;
   top: 65px;
   right: 40px;

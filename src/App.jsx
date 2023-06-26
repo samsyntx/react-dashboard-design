@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Charts from "./components/Charts/Charts";
+import Tables from "./components/Tables/Tables";
 import SidebarContext from "./context/SidebarContext";
 import { useState } from "react";
 
@@ -67,6 +68,7 @@ function App() {
             <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/charts" component={Charts} />
+            <Route exact path='/tables' component={Tables} />
             </Switch>
           </FlexRouteRenderContainer>
         </ComAppContainer>

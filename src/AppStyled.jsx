@@ -7,4 +7,7 @@ flex-direction: row;
 
 export const FlexRouteRenderContainer = styled.div `
 flex-grow: 1;
+height: 90vh;
+overflow: auto;
+padding: 15px;
 `

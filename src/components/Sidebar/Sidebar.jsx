@@ -178,7 +178,7 @@ const Sidebar = function () {
         <SideIconTextArrowContainer theme={isDarkSider.toString()} to="/">
           <SideIconTextContainer>
             <AiFillDashboard size={20} />
-            <SideMenuTextPara theme={isDarkSider}>Dashboard</SideMenuTextPara>
+            <SideMenuTextPara theme={isDarkSider.toString()}>Dashboard</SideMenuTextPara>
           </SideIconTextContainer>
         </SideIconTextArrowContainer>
 
@@ -217,15 +217,15 @@ const Sidebar = function () {
 
         <MiniSideHeading>Addons</MiniSideHeading>
         <SideIconTextArrowContainer theme={isDarkSider.toString()} to="/charts">
-          <SideIconTextContainer>
+          <SideIconTextContainer >
             <AiOutlineBarChart size={20} />
-            <SideMenuTextPara>Charts</SideMenuTextPara>
+            <SideMenuTextPara theme={isDarkSider.toString()}>Charts</SideMenuTextPara>
           </SideIconTextContainer>
         </SideIconTextArrowContainer>
         <SideIconTextArrowContainer theme={isDarkSider.toString()} to="/tables">
           <SideIconTextContainer>
             <BsTable size={20} />
-            <SideMenuTextPara>Tables</SideMenuTextPara>
+            <SideMenuTextPara theme={isDarkSider.toString()}>Tables</SideMenuTextPara>
           </SideIconTextContainer>
         </SideIconTextArrowContainer>
       </ComSideTextContainer>

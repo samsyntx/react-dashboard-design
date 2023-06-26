@@ -31,7 +31,9 @@ export const PcSidebarConatiner = styled.nav`
 // Responsive Sidebar
 
 export const MobileSidebarContainer = styled.nav`
+  z-index: 10;
   position: absolute;
+  top: 60px;
   left: ${(props) => (props.mobile === "true" ? "0px" : "-800px")};
   height: 95vh;
   width: 250px;

@@ -1,4 +1,4 @@
-import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from "recharts"
+import { PieChart, Pie, Legend, Cell} from "recharts"
 
 const data = [
   {
@@ -16,32 +16,30 @@ const data = [
 ]
 
 const PieChartCom = (props) => {
-  const {height, width} = props
+  const { height, width } = props
   return (
-    <ResponsiveContainer width={width} height={height}>
-      <PieChart>
-        <Pie
-          cx="70%"
-          cy="40%"
-          data={data}
-          startAngle={0}
-          endAngle={360}
-          innerRadius="40%"
-          outerRadius="70%"
-          dataKey="count"
-        >
-          <Cell name="Telugu" fill="#fecba6" />
-          <Cell name="Hindi" fill="#b3d23f" />
-          <Cell name="English" fill="#a44c9e" />
-        </Pie>
-        <Legend
-          iconType="circle"
-          layout="vertical"
-          verticalAlign="middle"
-          align="right"
-        />
-      </PieChart>
-    </ResponsiveContainer>
+    <PieChart width={width} height={height}>
+      <Pie
+        cx="40%"
+        cy="40%"
+        data={data}
+        startAngle={0}
+        endAngle={360}
+        innerRadius="30%"
+        outerRadius="70%"
+        dataKey="count"
+      >
+        <Cell name="Telugu" fill="#fecba6" />
+        <Cell name="Hindi" fill="#b3d23f" />
+        <Cell name="English" fill="#a44c9e" />
+      </Pie>
+      <Legend
+        iconType="circle"
+        layout="vertical"
+        verticalAlign="middle"
+        align="right"
+      />
+    </PieChart>
   )
 }
 

@@ -18,7 +18,9 @@ const ContainerCard = (props, ) => {
         <CCTitleIcon>{icon}</CCTitleIcon>
         <CCchartTitle>{name}</CCchartTitle>
       </CCHeadingIconContainer>
-      <CCmainChildContainer>{props.children}</CCmainChildContainer>
+      <CCmainChildContainer>
+        {props.children}
+      </CCmainChildContainer>
       <CCbottomTimeContainer>{time}</CCbottomTimeContainer>
     </ChartsContainerCom>
   );
