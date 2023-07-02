@@ -22,7 +22,7 @@ export const PcSidebarConatiner = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   overflow: auto;
-  height: 95vh;
+  height: 90vh;
   @media all and (max-width: 768px) {
     display: none;
   }

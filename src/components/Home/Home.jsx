@@ -2,6 +2,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import AreaChart from "../Charts/AreaChart";
 import BarChart from "../Charts/BarChart";
 import { ChartShrinkContainer } from "../Charts/ChartsStyled";
+import FooterComp from '../FooterComp/FooterComp'
 
 import {
   HomeComContainer,
@@ -26,6 +27,7 @@ const dashboardCard = [
 
 const Home = function () {
   return (
+    <>
     <HomeComContainer>
       <HomeDashboardHeading>Dashboard</HomeDashboardHeading>
       <LinkBar>Dashboard</LinkBar>
@@ -51,7 +53,9 @@ const Home = function () {
           <BarChart />
         </ChartShrinkContainer>
       </HomeChartsContainer>
+      <FooterComp />
     </HomeComContainer>
+    </>
   );
 };
 

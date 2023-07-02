@@ -17,7 +17,6 @@ const switchToCheckProp = (props) => {
 
 export const HomeComContainer = styled.div`
   height: 90vh;
-  padding: 15px;
   color: #222121;
 `;
 

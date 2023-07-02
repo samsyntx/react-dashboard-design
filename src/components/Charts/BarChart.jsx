@@ -1,7 +1,8 @@
 import { Bar } from "react-chartjs-2";
-import Chart from "chart.js/auto";
 import ChartsDetails from "./ChartsDetails";
 import ChartsContainer from "./ChartsContainer";
+/* eslint-disable no-unused-vars */
+import Chart from "chart.js/auto";
 
 const barChartData = {
   labels: ["Label 1", "Label 2", "Label 3"],

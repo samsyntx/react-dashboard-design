@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import {
   ChartsContainerCom,
   CCHeadingIconContainer,
@@ -11,7 +10,7 @@ import {
 } from "./ChartsStyled";
 
 const ContainerCard = (props, ) => {
-  const {name, icon, time, isGrow} = props.detail;
+  const {name, icon, time} = props.detail;
   
   return (
     <ChartsContainerCom>
