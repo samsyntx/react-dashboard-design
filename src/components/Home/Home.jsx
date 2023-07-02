@@ -1,4 +1,7 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
+import AreaChart from "../Charts/AreaChart";
+import BarChart from "../Charts/BarChart";
+import { ChartShrinkContainer } from "../Charts/ChartsStyled";
 
 import {
   HomeComContainer,
@@ -11,6 +14,7 @@ import {
   DashboardCardViewDetail,
   DashboardCardDetailIcon,
   DashBoardUnOrder,
+  HomeChartsContainer,
 } from "./HomeStyled";
 
 const dashboardCard = [
@@ -33,12 +37,20 @@ const Home = function () {
             <DashboardCardViewIconCon>
               <DashboardCardViewDetail>View Details</DashboardCardViewDetail>
               <DashboardCardDetailIcon>
-                <MdKeyboardArrowRight size={20}/>
+                <MdKeyboardArrowRight size={20} />
               </DashboardCardDetailIcon>
             </DashboardCardViewIconCon>
           </DashboardCard>
         ))}
       </DashBoardUnOrder>
+      <HomeChartsContainer>
+        <ChartShrinkContainer>
+          <AreaChart />
+        </ChartShrinkContainer>
+        <ChartShrinkContainer>
+          <BarChart />
+        </ChartShrinkContainer>
+      </HomeChartsContainer>
     </HomeComContainer>
   );
 };

@@ -6,27 +6,19 @@ export const ChartsContainerCom = styled.div`
   border: 1px solid #00000031;
   border-radius: 10px;
   background-color: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
   width: 100%;
-  @media all and (max-width: 768px){
-    overflow: auto;
-    margin: 0px;
-  }
+  overflow: hidden;
 `;
 
 export const CCHeadingIconContainer = styled.div`
-align-self: flex-start;
-margin: 15px;
-display: flex;
-justify-content: center;
-align-items: center;
+  margin: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
-export const CCTitleIcon = styled.div``;
+export const CCTitleIcon = styled.div`
+`;
 
 export const CCchartTitle = styled.p`
   margin-left: 10px;
@@ -37,38 +29,35 @@ export const CCmainChildContainer = styled.div`
   background-color: white;
   border: 1px solid #00000031;
   width: 100%;
-  padding-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 350px;
-  position: relative;
+  height: 300px;
+  padding: 30px 0px 30px 0px;
 `;
-
 
 export const CCbottomTimeContainer = styled.p`
-align-self: flex-start;
-margin: 15px;
-font-size: 13px;
-color: #757575;
+  margin: 15px;
+  font-size: 13px;
+  color: #757575;
 `;
-
 
 // Chart.jsx Styling
 
-export const ComContainerCharts = styled.div `
+export const ComContainerCharts = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-`
+  @media all and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
-export const FlexContainerCharts = styled.div `
-display: flex;
-flex-direction: row;
-flex-grow: 1;
-@media all and (max-width: 768px ){
-  display: none;
-}
-`
+export const ChartShrinkContainer = styled.div`
+  width: 40%;
+  margin: 5px;
+  flex-grow: 1;
+  @media all and (max-width: 768px) {
+    display: block;
+    width: 100%;
+  }
+`;

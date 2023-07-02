@@ -17,7 +17,6 @@ const switchToCheckProp = (props) => {
 
 export const HomeComContainer = styled.div`
   height: 90vh;
-  overflow: auto;
   padding: 15px;
   color: #222121;
 `;
@@ -79,3 +78,11 @@ export const DashboardCardViewDetail = styled.p`
 `;
 
 export const DashboardCardDetailIcon = styled.div``;
+
+export const HomeChartsContainer = styled.div`
+display: flex;
+margin: 10px 0px 10px 0px;
+@media all and (max-width: 768px){
+  display: block;
+}
+`

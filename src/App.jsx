@@ -1,13 +1,14 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import SidebarContext from "./context/SidebarContext";
+import { useState } from "react";
+
+import { ComAppContainer, FlexRouteRenderContainer } from "./AppStyled";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Charts from "./components/Charts/Charts";
 import Tables from "./components/Tables/Tables";
-import SidebarContext from "./context/SidebarContext";
-import { useState } from "react";
-
-import { ComAppContainer, FlexRouteRenderContainer } from "./AppStyled";
+import StaticPage from './components/CommonPage/StaticPage'
 
 const initialState = {
   isDarkSider: true,
@@ -69,6 +70,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/charts" component={Charts} />
             <Route exact path='/tables' component={Tables} />
+            <Route exact path="/" component={StaticPage} />
             </Switch>
           </FlexRouteRenderContainer>
         </ComAppContainer>
