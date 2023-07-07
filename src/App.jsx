@@ -10,7 +10,10 @@ import Charts from "./components/Charts/Charts";
 import Tables from "./components/Tables/Tables";
 import StaticPage from "./components/CommonPage/StaticPage";
 import ErrorPage from "./components/Error/ErrorPage";
-import Error404 from './components/Error/Error404'
+import Error404 from "./components/Error/Error404";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import Forget from "./components/Auth/Forget";
 
 const initialState = {
   isDarkSider: true,
@@ -51,17 +54,18 @@ function App() {
   };
 
   const Error401 = () => {
-    return(
-      <ErrorPage code="401" title="Unauthorized" detail="Access to this resource is denied."/>
-    )
-  }
-
+    return (
+      <ErrorPage
+        code="401"
+        title="Unauthorized"
+        detail="Access to this resource is denied."
+      />
+    );
+  };
 
   const Error500 = () => {
-    return(
-      <ErrorPage code="500" title="Internal Server Error" detail=""/>
-    )
-  }
+    return <ErrorPage code="500" title="Internal Server Error" detail="" />;
+  };
 
   return (
     <SidebarContext.Provider
@@ -78,6 +82,9 @@ function App() {
     >
       <BrowserRouter>
         <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/Register" component={Register} />
+          <Route exact path="/forget-password" component={Forget} />
           <Route exact path="/401" component={Error401} />
           <Route exact path="/404" component={Error404} />
           <Route exact path="/500" component={Error500} />

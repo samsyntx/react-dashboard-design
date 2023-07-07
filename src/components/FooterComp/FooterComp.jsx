@@ -8,7 +8,7 @@ import {
 const FooterComp = function () {
   return (
     <FooterComCon>
-      <CopyrightFooter>Copyright © React Admin by Shubham 2023</CopyrightFooter>
+      <CopyrightFooter>Copyright © Shubham 2023</CopyrightFooter>
       <LinkTextFooterDiv>
         <LinkFooter to='#'>Privacy Policy</LinkFooter> : {" "}
          <LinkFooter to='#'>Terms & Conditions</LinkFooter>
