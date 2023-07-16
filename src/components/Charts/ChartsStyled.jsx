@@ -24,12 +24,19 @@ export const CCchartTitle = styled.p`
   margin-left: 10px;
   font-size: 15px;
 `;
-
-export const CCmainChildContainer = styled.div`
+export const CCWhiteBgContainer = styled.div`
   background-color: white;
   border: 1px solid #00000031;
-  width: 100%;
-  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items-center;
+  overflow: auto;
+`
+
+export const CCmainChildContainer = styled.div`
+  
+  width: 98%;
+  min-height: 300px;
   padding: 30px 0px 30px 0px;
 `;
 

@@ -27,7 +27,7 @@ const Forget = function () {
       <CompAuthInsideCon>
         <AuthMainHeading>Password Recovery</AuthMainHeading>
         <AuthWhiteConCom>
-          <AuthFormConCom onClick={authButtonSubmit}>
+          <AuthFormConCom onSubmit={authButtonSubmit}>
             <DetailAuth>
               Enter your email address and we will send you a link to reset your
               password.

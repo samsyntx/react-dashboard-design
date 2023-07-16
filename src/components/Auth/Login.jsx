@@ -26,7 +26,7 @@ const Login = function () {
       <CompAuthInsideCon>
         <AuthMainHeading>Login</AuthMainHeading>
         <AuthWhiteConCom>
-          <AuthFormConCom onClick={authButtonSubmit}>
+          <AuthFormConCom onSubmit={authButtonSubmit}>
             <AuthLabelEle htmlFor="EMAIL">Email Address</AuthLabelEle>
             <AuthInputEle id="EMAIL" type="email" />
             <AuthLabelEle htmlFor="PASSWORD">Password</AuthLabelEle>

@@ -27,7 +27,7 @@ const Register = function () {
       <CompAuthInsideCon register={"true"}>
         <AuthMainHeading>Create Account</AuthMainHeading>
         <AuthWhiteConCom>
-          <AuthFormConCom onClick={authButtonSubmit}>
+          <AuthFormConCom onSubmit={authButtonSubmit}>
             <RegisterFlexCon>
               <RegisterInputWrap>
                 <AuthLabelEle htmlFor="FIRSTNAME">First Name</AuthLabelEle>

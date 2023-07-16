@@ -1,6 +1,7 @@
 import { AiOutlineAreaChart } from "react-icons/ai";
 import {FaChartBar} from 'react-icons/fa'
 import {BiSolidPieChartAlt2} from 'react-icons/bi'
+import {GrTable} from 'react-icons/gr'
 
 const ChartsDetails = [
     {
@@ -23,6 +24,13 @@ const ChartsDetails = [
       icon: <BiSolidPieChartAlt2 size={20}/>,
       time: "Updated yesterday at 11:59 PM",
       isGrow: false
+    },
+    {
+      id: 4,
+      name: "DataTable Example",
+      icon: <GrTable size={20}/>,
+      time: "Updated yesterday at 11:59 PM",
+      isGrow: true
     },
   ];
 

@@ -2,7 +2,8 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import AreaChart from "../Charts/AreaChart";
 import BarChart from "../Charts/BarChart";
 import { ChartShrinkContainer } from "../Charts/ChartsStyled";
-import FooterComp from '../FooterComp/FooterComp'
+import FooterComp from '../FooterComp/FooterComp';
+import DataTableEl from '../Tables/DataTable';
 
 import {
   HomeComContainer,
@@ -28,33 +29,34 @@ const dashboardCard = [
 const Home = function () {
   return (
     <>
-    <HomeComContainer>
-      <HomeDashboardHeading>Dashboard</HomeDashboardHeading>
-      <LinkBar>Dashboard</LinkBar>
-      <DashBoardUnOrder>
-        {dashboardCard.map((each) => (
-          <DashboardCard key={each.id} bgcolor={each.id}>
-            <DashboardCardpHead>{each.display}</DashboardCardpHead>
-            <DashBoardCardHr />
-            <DashboardCardViewIconCon>
-              <DashboardCardViewDetail>View Details</DashboardCardViewDetail>
-              <DashboardCardDetailIcon>
-                <MdKeyboardArrowRight size={20} />
-              </DashboardCardDetailIcon>
-            </DashboardCardViewIconCon>
-          </DashboardCard>
-        ))}
-      </DashBoardUnOrder>
-      <HomeChartsContainer>
-        <ChartShrinkContainer>
-          <AreaChart />
-        </ChartShrinkContainer>
-        <ChartShrinkContainer>
-          <BarChart />
-        </ChartShrinkContainer>
-      </HomeChartsContainer>
-      <FooterComp />
-    </HomeComContainer>
+      <HomeComContainer>
+        <HomeDashboardHeading>Dashboard</HomeDashboardHeading>
+        <LinkBar>Dashboard</LinkBar>
+        <DashBoardUnOrder>
+          {dashboardCard.map((each) => (
+            <DashboardCard key={each.id} bgcolor={each.id}>
+              <DashboardCardpHead>{each.display}</DashboardCardpHead>
+              <DashBoardCardHr />
+              <DashboardCardViewIconCon>
+                <DashboardCardViewDetail>View Details</DashboardCardViewDetail>
+                <DashboardCardDetailIcon>
+                  <MdKeyboardArrowRight size={20} />
+                </DashboardCardDetailIcon>
+              </DashboardCardViewIconCon>
+            </DashboardCard>
+          ))}
+        </DashBoardUnOrder>
+        <HomeChartsContainer>
+          <ChartShrinkContainer>
+            <AreaChart />
+          </ChartShrinkContainer>
+          <ChartShrinkContainer>
+            <BarChart />
+          </ChartShrinkContainer>
+        </HomeChartsContainer>
+        <DataTableEl />
+        <FooterComp />
+      </HomeComContainer>
     </>
   );
 };

@@ -4,23 +4,26 @@ import {
   ChartsContainerCom,
   CCHeadingIconContainer,
   CCchartTitle,
-  CCmainChildContainer,
+  CCmainChildContainer, CCWhiteBgContainer,
   CCbottomTimeContainer,
   CCTitleIcon,
 } from "./ChartsStyled";
 
-const ContainerCard = (props, ) => {
-  const {name, icon, time} = props.detail;
-  
+const ContainerCard = (props,) => {
+  const { name, icon, time } = props.detail;
+
   return (
     <ChartsContainerCom>
       <CCHeadingIconContainer>
         <CCTitleIcon>{icon}</CCTitleIcon>
         <CCchartTitle>{name}</CCchartTitle>
       </CCHeadingIconContainer>
-      <CCmainChildContainer >
-        {props.children}
-      </CCmainChildContainer>
+      <CCWhiteBgContainer>
+        <CCmainChildContainer >
+          {props.children}
+        </CCmainChildContainer>
+      </CCWhiteBgContainer>
+
       <CCbottomTimeContainer>{time}</CCbottomTimeContainer>
     </ChartsContainerCom>
   );
